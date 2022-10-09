@@ -1,0 +1,25 @@
+%{
+int line_number = 1; 
+%}
+
+line .*\n	
+
+%%
+{line} { printf("%10d %s", line_number++, yytext); }
+
+		in this variable (char*)*/
+%%
+
+int yywrap(){}
+
+int main(int argc, char*argv[])
+{
+extern FILE *yyin; 
+yyin = fopen("testtest.c","r"); /* yyin points to the file
+								testtest.c and opens it
+								in read mode.*/
+
+yylex(); 
+
+return 0;
+}
